@@ -5,10 +5,31 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    token: "",
+    userInfo: JSON.parse(sessionStorage.getItem("userInfo"))
   },
   getters: {
+    //相当于java中的get方法
+    getUser: state => {
+      return state.userInfo
+    }
   },
   mutations: {
+    //相当于java中的set方法
+    SET_TOKEN: (state, token) =>{
+      state.token = token
+      localStorage.setItem("token", token)
+    },
+    SET_USERINFO: (state, userInfo) => {
+      state.userInfo = userInfo
+      sessionStorage.setItem("userInfo", JSON.stringify(userInfo))
+    },
+    REMOVE_TOKEN: (state) => {
+      state.token = ''
+      state.userInfo = {}
+      localStorage.setItem("token", "")
+      sessionStorage.setItem("userInfo", JSON.stringify(''))
+    }
   },
   actions: {
   },
