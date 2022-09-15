@@ -44,12 +44,12 @@ export default {
     };
   },
   methods: {
-    submitForm(formName) {
+    submitForm: function (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           const _this = this
-          this.$axios.post("/account/login", this.ruleForm).then(res => {
-            const jwt = res.headers["authorization"]
+          this.$axios.post("/login", this.ruleForm).then(res => {
+            const jwt = res.headers['authorization']
             const userInfo = res.data.data
 
             //把数据共享出去
@@ -76,9 +76,9 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
   .el-header, .el-footer {
-    background-color: #B3C0D1;
+    background-color: white;
     color: #333;
     text-align: center;
     line-height: 60px;

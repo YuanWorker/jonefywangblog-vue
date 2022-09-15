@@ -25,7 +25,7 @@ const routes = [
     },
     {
       path: '/blog/:blogId',
-      name: 'blogedit',
+      name: 'blogdetail',
       component: BlogDetail
     },
     {
